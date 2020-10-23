@@ -1,13 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Map from './Map';
+import Toggler from './Toggler';
+import Search from './Search';
+import PlacesPanel from './PlacesPanel';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      hello there how are you
-    </div>
-  );
+class App extends Component {
+  constructor(props) { 
+    super(props)
+
+    this.state = {
+      map: null,
+      latitude: 40.7128,
+      longitude: -74.006,
+      style: 'mapbox://styles/mapbox/streets-v11',
+      places: [
+        
+      ]
+    }
+}
+
+  render() {
+    return (
+      <div className="App">
+      <PlacesPanel app={this}/>
+      <Search app={this}/>
+      <Toggler app={this}/>
+      <Map app={this}/>
+      </div>
+    );
+  }
 }
 
 export default App;
